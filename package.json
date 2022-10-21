@@ -1,0 +1,69 @@
+{
+  "name": "mojibake-hunter",
+  "displayName": "mojibake-hunter",
+  "description": "detect mojibake on the editor.",
+  "publisher": "toramameseven",
+  "author": {
+    "name": "toramame-seven"
+  },
+  "version": "0.0.1",
+  "icon": "images/mojibake.png",
+  "galleryBanner": {
+    "color": "#C80000",
+    "theme": "dark"
+  },
+  "engines": {
+    "vscode": "^1.72.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "*"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "configuration": {
+      "title": "mojibake",
+      "properties": {
+        "mojibake.MaxLines": {
+          "type": "number",
+          "default": 10000,
+          "description": "This does not work exceed this value. Default is 10000",
+          "order": 1
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "npm run compile && npm run lint",
+    "lint": "eslint src --ext ts",
+    "test": "node ./out/test/runTest.js",
+    "package": "vsce package --target win32-x64"
+  },
+  "devDependencies": {
+    "@types/encoding-japanese": "^2.0.1",
+    "@types/glob": "^7.2.0",
+    "@types/mocha": "^9.1.1",
+    "@types/node": "16.x",
+    "@types/vscode": "^1.72.0",
+    "@typescript-eslint/eslint-plugin": "^5.30.0",
+    "@typescript-eslint/parser": "^5.30.0",
+    "@vscode/test-electron": "^2.1.5",
+    "eslint": "^8.18.0",
+    "glob": "^8.0.3",
+    "mocha": "^10.0.0",
+    "typescript": "^4.7.4"
+  },
+  "dependencies": {
+    "encoding-japanese": "^2.0.0"
+  },
+  "license": "MIT",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/toramameseven/mojibake-hunter.git"
+	}
+}
