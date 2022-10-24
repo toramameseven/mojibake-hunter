@@ -18,7 +18,5 @@ This extension contributes the following settings:
 
 ## Release Notes
 
-### 0.0.1
-
-First release.
+[changelog](./CHANGELOG.md)
 
