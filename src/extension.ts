@@ -36,10 +36,15 @@ async function handlerOnOpenRefreshModification(
 
   // get file text on unicode
   const text = fs.readFileSync(textDocument.uri.fsPath);
-  const docFile = Encoding.convert(text, {
+  let docFile = Encoding.convert(text, {
     to: "UNICODE",
     type: "string",
   });
+
+  // https://gist.github.com/antic183/619f42b559b78028d1fe9e7ae8a1352d
+  if (docFile.charCodeAt(0) === 0xfeff) {
+    docFile = docFile.substring(1);
+  }
 
   const textEq = docText === docFile;
   !textEq &&
