@@ -21,7 +21,7 @@ async function handlerOnOpenRefreshModification(
 ) {
   const maxLine =
     vscode.workspace.getConfiguration("mojibake").get<number>("MaxLines") ||
-    1000;
+    10000;
   if (textDocument.lineCount > maxLine) {
     modalDialogShow(
       `"${path.basename(
@@ -32,7 +32,7 @@ async function handlerOnOpenRefreshModification(
   }
 
   // get vscode text on unicode
-  const docText = textDocument.getText();
+  let docText = textDocument.getText();
 
   // get file text on unicode
   const text = fs.readFileSync(textDocument.uri.fsPath);
@@ -44,6 +44,15 @@ async function handlerOnOpenRefreshModification(
   // https://gist.github.com/antic183/619f42b559b78028d1fe9e7ae8a1352d
   if (docFile.charCodeAt(0) === 0xfeff) {
     docFile = docFile.substring(1);
+  }
+
+  const isIgnoreNewlineDifference = vscode.workspace
+    .getConfiguration("mojibake")
+    .get<boolean>("IgnoreNewlineDifference");
+
+  if (isIgnoreNewlineDifference) {
+    docText = docText.replace(/\r/g, "");
+    docFile = docFile.replace(/\r/g, "");
   }
 
   const textEq = docText === docFile;

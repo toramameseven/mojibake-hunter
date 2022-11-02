@@ -6,7 +6,7 @@
   "author": {
     "name": "toramame-seven"
   },
-  "version": "0.0.1",
+  "version": "0.0.3",
   "icon": "images/mojibake.png",
   "galleryBanner": {
     "color": "#C80000",
@@ -31,6 +31,12 @@
           "default": 10000,
           "description": "This does not work exceed this value. Default is 10000",
           "order": 1
+        },
+        "mojibake.IgnoreNewlineDifference": {
+          "type": "boolean",
+          "default": false,
+          "description": "Ignore newline differences. Default is false",
+          "order": 2
         }
       }
     }
