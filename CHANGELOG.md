@@ -6,6 +6,10 @@ Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how 
 
 ## [Unreleased]
 
+## 0.0.3 2022/11/3
+
+   Add Ignore newline differences option.
+
 ## 0.0.2 2022/10/24
 
    When a utf-8 bom document is opened, this detects mojibake. Fixed.

@@ -15,6 +15,7 @@ For Windows 10 Japanese.
 This extension contributes the following settings:
 
 * `mojibake.MaxLines`: Max lines for this extension works.
+* `mojibake.IgnoreNewlineDifference`: Ignore Newline Differences. For vscode does not like mixed newlines.
 
 ## Release Notes
 

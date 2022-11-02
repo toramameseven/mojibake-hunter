@@ -15,9 +15,8 @@ Windows 10 日本語用。
 この拡張機能は、次の設定に貢献します。
 
 * `mojibake.MaxLines`: この拡張機能の最大行数。
+* `mojibake.IgnoreNewlineDifference`: 改行の違いを無視します。vscodeは混ざった改行が嫌いです。
 
 ## Release Notes
 
-### 0.0.1
-
-最初のリリース。
+[changelog](./CHANGELOG.md)
